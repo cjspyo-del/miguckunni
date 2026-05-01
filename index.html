@@ -7,43 +7,58 @@
     <style>
         body, html { margin: 0; padding: 0; height: 100%; font-family: 'Apple SD Gothic Neo', sans-serif; overflow: hidden; }
         
-        /* 배경 이미지를 bg.jpg로 꽉 채우기 */
+        /* 전체 배경: 사장님의 bg.jpg 그대로 사용 */
         .wrapper { 
             display: flex; flex-direction: column; height: 100vh; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; 
             background: url('bg.jpg') no-repeat center center;
             background-size: cover;
         }
 
-        /* 중앙 로고 카드 */
-        .card-display {
-            width: 100%; max-width: 480px; aspect-ratio: 1024 / 637;
-            background: url('card.jpg') no-repeat center center;
-            background-size: cover; border-radius: 20px; 
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-            z-index: 10; margin-bottom: 35px;
+        /* [핵심 수정] 중앙 정보 영역에 반투명 하얀색 배경 깔기 */
+        .main-content {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background-color: rgba(255, 255, 255, 0.92); /* 배경그림이 은은하게 비치는 하얀색 */
+            padding: 40px 20px; border-radius: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(5px); /* 배경그림을 살짝 흐리게 해서 글씨 집중도 향상 */
+            width: 100%; max-width: 500px;
         }
 
-        .info-section { text-align: center; width: 100%; z-index: 10; }
-        .info-text { margin-bottom: 20px; font-size: 22px; font-weight: 800; color: #4a3427; text-shadow: 0 2px 4px rgba(255,255,255,0.8); }
+        /* '미국언니' 카드 */
+        .card-display {
+            width: 100%; max-width: 420px; aspect-ratio: 1024 / 637;
+            background: url('card.jpg') no-repeat center center;
+            background-size: cover; border-radius: 15px; 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .info-section { text-align: center; width: 100%; }
+        /* 글씨 크기를 키우고 더 진하게 수정 */
+        .info-text { margin-bottom: 20px; font-size: 24px; font-weight: 800; color: #333; }
         
         .copy-btn {
-            width: 100%; max-width: 340px; background-color: #4a3427; color: #fff;
-            border: none; padding: 22px; border-radius: 50px; font-size: 19px;
+            width: 100%; max-width: 320px; background-color: #4a3427; color: #fff;
+            border: none; padding: 20px; border-radius: 50px; font-size: 19px;
             font-weight: bold; cursor: pointer; transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(74, 52, 39, 0.4);
+            box-shadow: 0 8px 20px rgba(74, 52, 39, 0.3);
         }
         .copy-btn:active { transform: scale(0.96); background-color: #2a1d16; }
         
-        .hint { margin-top: 18px; font-size: 14px; color: #6d5442; font-weight: 600; text-shadow: 0 1px 2px rgba(255,255,255,0.8); }
+        /* 힌트 문구도 선명하게 수정 */
+        .hint { margin-top: 20px; font-size: 15px; color: #555; font-weight: 600; }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <div class="card-display"></div>
-        <div class="info-section">
-            <div class="info-text">농협 박가은(미국언니)</div>
-            <button class="copy-btn" onclick="copyAccount()">계좌번호 복사하기</button>
-            <div class="hint">버튼을 누르면 번호가 자동으로 복사됩니다.</div>
+        <!-- 중앙 정보 영역을 감싸는 새로운 박스 -->
+        <div class="main-content">
+            <div class="card-display"></div>
+            <div class="info-section">
+                <div class="info-text">농협 박가은(미국언니)</div>
+                <button class="copy-btn" onclick="copyAccount()">계좌번호 복사하기</button>
+                <div class="hint">버튼을 누르면 번호가 자동으로 복사됩니다.</div>
+            </div>
         </div>
     </div>
     <script>
