@@ -3,54 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>미국언니 네일 결제안내</title>
+    <title>미국언니 네일샵 결제안내</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; font-family: 'Apple SD Gothic Neo', sans-serif; overflow: hidden; }
+        body, html { margin: 0; padding: 0; height: 100%; background-color: #fcfaf5; font-family: 'Apple SD Gothic Neo', sans-serif; overflow: hidden; }
         
-        /* 전체 배경: 예술적인 라인 드로잉 일러스트를 배경으로 설정 */
+        /* 예술적인 드로잉 느낌을 코드(패턴)로 구현한 배경 */
         .wrapper { 
             display: flex; flex-direction: column; height: 100vh; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; 
-            background-color: #ffffff;
-            /* 네일/손 관련 라인아트 드로잉을 배경으로 사용 */
-            background-image: url('https://www.transparenttextures.com/patterns/pinstriped-suit.png'), 
-                              linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)),
-                              url('https://img.freepik.com/free-vector/hand-drawn-minimalist-finger-nail-illustration_23-2148915006.jpg'); 
-            background-size: auto, cover, contain;
-            background-position: center;
-            background-repeat: no-repeat;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 20%),
+                linear-gradient(45deg, #fcfaf5 25%, #f9f6f0 25%, #f9f6f0 50%, #fcfaf5 50%, #fcfaf5 75%, #f9f6f0 75%, #f9f6f0 100%);
+            background-size: 100% 100%, 100% 100%, 40px 40px;
         }
 
-        /* 가운데 로고 카드 (사장님이 주신 card.jpg 그대로 사용) */
+        /* 사장님의 '미국언니' 카드 이미지 */
         .card-display {
-            width: 100%; max-width: 500px; aspect-ratio: 1024 / 637;
+            width: 100%; max-width: 450px; aspect-ratio: 1024 / 637;
             background: url('card.jpg') no-repeat center center;
-            background-size: cover; border-radius: 20px; 
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            z-index: 10; margin-bottom: 30px;
+            background-size: cover; border-radius: 15px; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            z-index: 10; margin-bottom: 40px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
         .info-section { text-align: center; width: 100%; z-index: 10; }
-        .info-text { margin-bottom: 15px; font-size: 22px; font-weight: 800; color: #333; letter-spacing: -0.5px; }
+        .info-text { margin-bottom: 20px; font-size: 20px; font-weight: 700; color: #4a3427; }
         
-        /* 버튼 디자인: 드로잉과 어울리는 딥한 골드/블랙 톤 */
+        /* 버튼을 더 힙하고 예술적인 느낌으로 변경 */
         .copy-btn {
-            width: 100%; max-width: 350px; background-color: #1a1a1a; color: #fff;
-            border: none; padding: 22px; border-radius: 12px; font-size: 19px;
-            font-weight: bold; cursor: pointer; transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 100%; max-width: 320px; background-color: #4a3427; color: #fcfaf5;
+            border: none; padding: 20px; border-radius: 50px; font-size: 18px;
+            font-weight: 800; cursor: pointer; transition: all 0.3s ease;
+            box-shadow: 0 10px 25px rgba(74, 52, 39, 0.2);
+            letter-spacing: 1px;
         }
-        .copy-btn:active { background-color: #444; transform: scale(0.98); }
+        .copy-btn:active { transform: scale(0.96); background-color: #2a1d16; }
         
-        .hint { margin-top: 15px; font-size: 14px; color: #666; font-weight: 500; }
+        .hint { margin-top: 20px; font-size: 13px; color: #a38b75; font-weight: 400; }
 
+        /* 배경에 흩뿌려진 드로잉 요소들을 가상으로 추가 */
+        .wrapper::before {
+            content: "💅 ✨ 🎨 💍"; position: absolute; top: 10%; left: 5%; font-size: 40px; opacity: 0.1; transform: rotate(-15deg);
+        }
+        .wrapper::after {
+            content: "✨ 🖌️ 🧤 ✨"; position: absolute; bottom: 10%; right: 5%; font-size: 40px; opacity: 0.1; transform: rotate(15deg);
+        }
     </style>
 </head>
 <body>
     <div class="wrapper">
         <div class="card-display"></div>
-
         <div class="info-section">
-            <div class="info-text">농협) 박가은(미국언니)</div>
+            <div class="info-text">농협 박가은(미국언니)</div>
             <button class="copy-btn" onclick="copyAccount()">계좌번호 복사하기</button>
             <div class="hint">버튼을 누르면 번호가 자동으로 복사됩니다.</div>
         </div>
@@ -69,7 +74,7 @@
             textArea.setSelectionRange(0, 9999);
             try {
                 document.execCommand('copy');
-                alert("💅 미국언니 계좌가 복사되었습니다!\n352-1399-5866-33 (박가은)");
+                alert("✨ 미국언니 계좌번호가 복사되었습니다 ✨\n352-1399-5866-33 (박가은)");
             } catch (err) {
                 alert("복사에 실패했습니다.");
             }
