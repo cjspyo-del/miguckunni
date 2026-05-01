@@ -3,69 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>미국언니 네일 결제안내</title>
-    <!-- 힙한 느낌을 위해 폰트와 아이콘 폰트를 불러옵니다 -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>미국언니 결제안내</title>
     <style>
-        body, html { margin: 0; padding: 0; height: 100%; background-color: #f8f5f0; font-family: 'Apple SD Gothic Neo', sans-serif; overflow: hidden; color: #4a3427; }
-        .wrapper { display: flex; flex-direction: column; height: 100vh; align-items: center; justify-content: space-around; padding: 40px 20px; box-sizing: border-box; }
-        
-        /* 상단 드로잉 섹션 */
-        .drawing-top { font-size: 50px; opacity: 0.7; color: #d4af37; margin-bottom: -20px; }
-        
+        body, html { margin: 0; padding: 0; height: 100%; background-color: #f4f1ea; font-family: 'Apple SD Gothic Neo', sans-serif; overflow: hidden; }
+        .wrapper { display: flex; flex-direction: column; height: 100vh; align-items: center; justify-content: center; padding: 20px; box-sizing: border-box; }
         .card-display {
             width: 100%; max-width: 500px; aspect-ratio: 1024 / 637;
             background: url('card.jpg') no-repeat center center;
-            background-size: cover; border-radius: 20px; 
-            box-shadow: 0 15px 45px rgba(212, 175, 55, 0.2);
+            background-size: cover; border-radius: 20px; box-shadow: 0 12px 40px rgba(0,0,0,0.15); margin-bottom: 40px;
         }
-        
-        .info-section { text-align: center; width: 100%; }
-        .info-text { margin-bottom: 15px; font-size: 22px; font-weight: 800; letter-spacing: -0.5px; }
-        
+        .info-text { margin-bottom: 20px; font-size: 20px; font-weight: bold; color: #4a3427; text-align: center; }
         .copy-btn {
             width: 100%; max-width: 350px; background-color: #d4af37; color: #fff;
-            border: none; padding: 22px; border-radius: 50px; font-size: 19px;
-            font-weight: bold; cursor: pointer; transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
-            text-transform: uppercase;
+            border: none; padding: 20px; border-radius: 15px; font-size: 18px;
+            font-weight: bold; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
         }
-        .copy-btn:active { background-color: #b8952e; transform: scale(0.98); }
-        
-        .hint { margin-top: 15px; font-size: 14px; color: #8a7b6a; opacity: 0.8; }
-        
-        /* 하단 드로잉 섹션 (손 이미지 느낌) */
-        .drawing-bottom { display: flex; gap: 40px; font-size: 45px; opacity: 0.6; color: #d4af37; }
-        .drawing-bottom i { transform: rotate(-10deg); }
+        .copy-btn:active { background-color: #b8952e; transform: scale(0.95); }
+        .hint { margin-top: 20px; font-size: 14px; color: #8a7b6a; text-align: center; }
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <!-- 상단: 네일 받는 손 느낌의 아이콘 -->
-        <div class="drawing-top">
-            <i class="fa-solid fa-hand-sparkles"></i>
-        </div>
-
         <div class="card-display"></div>
-
-        <div class="info-section">
-            <div class="info-text">Nail Studio 미국언니</div>
-            <button class="copy-btn" onclick="copyAccount()">
-                <i class="fa-regular fa-copy"></i> 계좌번호 복사하기
-            </button>
-            <div class="hint">버튼을 누르면 번호가 자동으로 복사됩니다.</div>
-        </div>
-
-        <!-- 하단: 네일 도구와 손 드로잉 느낌 -->
-        <div class="drawing-bottom">
-            <i class="fa-solid fa-hands"></i>
-            <i class="fa-solid fa-paint-brush"></i>
-        </div>
+        <div class="info-text">농협 박가은(미국언니)</div>
+        <button class="copy-btn" onclick="copyAccount()">계좌번호 복사하기</button>
+        <div class="hint">버튼을 누르면 번호가 자동으로 복사됩니다.</div>
     </div>
-
     <script>
         function copyAccount() {
-            var accountNumber = "3521399586633";
+            var accountNumber = "352-1399-5866-33";
             var textArea = document.createElement("textarea");
             textArea.value = accountNumber;
             textArea.style.position = "fixed";
@@ -76,7 +42,7 @@
             textArea.setSelectionRange(0, 9999);
             try {
                 document.execCommand('copy');
-                alert("✨ 미국언니 계좌가 복사되었습니다 ✨\n3521399586633 (박가은)");
+                alert("농협 계좌번호가 복사되었습니다!\n352-1399-5866-33\n예금주: 박가은");
             } catch (err) {
                 alert("복사에 실패했습니다.");
             }
