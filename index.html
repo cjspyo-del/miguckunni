@@ -31,7 +31,7 @@
     </div>
     <script>
         function copyAccount() {
-            var accountNumber = "352-1399-5866-33";
+            var accountNumber = "3521399586633";
             var textArea = document.createElement("textarea");
             textArea.value = accountNumber;
             textArea.style.position = "fixed";
@@ -42,7 +42,7 @@
             textArea.setSelectionRange(0, 9999);
             try {
                 document.execCommand('copy');
-                alert("농협 계좌번호가 복사되었습니다!\n352-1399-5866-33\n예금주: 박가은");
+                alert("농협 계좌번호가 복사되었습니다!\n3521399586633\n예금주: 박가은");
             } catch (err) {
                 alert("복사에 실패했습니다.");
             }
